@@ -11,4 +11,12 @@ import java.util.List;
  */
 public interface CategoryService {
     List<Category> categoryList();
+
+    void add(Category category);
+
+    void delete(Integer cid);
+
+    void update(Category category);
+
+    Category categoryFindById(Integer cid);
 }

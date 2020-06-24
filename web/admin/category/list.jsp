@@ -69,7 +69,7 @@
 												${c.cname }
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="${ pageContext.request.contextPath }/admin/category/update?cid=${c.cid}">
+												<a href="${ pageContext.request.contextPath }/admin/category/edit?cid=${c.cid}">
 													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>

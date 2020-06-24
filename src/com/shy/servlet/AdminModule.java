@@ -92,18 +92,53 @@ public class AdminModule {
 
     @RequestMapping("/list")
     @ResponseBody
-    public List<Admin> list(){
+    public List<Admin> list() {
 
         List<Admin> list = new ArrayList<>();
-        list.add(new Admin(1,"aaa","aaa"));
-        list.add(new Admin(2,"bbb","bbb"));
-        list.add(new Admin(3,"ccc","ccc"));
-        list.add(new Admin(4,"ddd","ddd"));
-        list.add(new Admin(5,"eee","eee"));
-        list.add(new Admin(6,"fff","fff"));
+        list.add(new Admin(1, "aaa", "aaa"));
+        list.add(new Admin(2, "bbb", "bbb"));
+        list.add(new Admin(3, "ccc", "ccc"));
+        list.add(new Admin(4, "ddd", "ddd"));
+        list.add(new Admin(5, "eee", "eee"));
+        list.add(new Admin(6, "fff", "fff"));
 
         return list;
     }
 
+    @RequestMapping("/admin/category/add")
+    @ReturnPage(prefix = "/admin/category/")
+    public String categoryAdd(Category category) {
 
+        categoryService.add(category);
+
+        return "forward:/admin/category/list";
+    }
+
+    @RequestMapping("/admin/category/delete")
+    @ReturnPage(prefix = "/admin/category/")
+    public String categoryDelete(@Param("cid") Integer cid) {
+
+        categoryService.delete(cid);
+
+        return "forward:/admin/category/list";
+    }
+
+    @RequestMapping("/admin/category/edit")
+    @ReturnPage(prefix = "/admin/category/")
+    public String categoryFindById(@Param("cid") Integer cid, Map<String, Object> map) {
+
+        Category category = categoryService.categoryFindById(cid);
+        map.put("c", category);
+
+        return "edit";
+    }
+
+    @RequestMapping("/admin/category/update")
+    @ReturnPage(prefix = "/admin/category/")
+    public String categoryUpdate(Category category) {
+
+        categoryService.update(category);
+
+        return "forward:/admin/category/list";
+    }
 }

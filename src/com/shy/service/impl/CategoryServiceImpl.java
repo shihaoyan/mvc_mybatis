@@ -21,4 +21,25 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> categoryList() {
         return categoryDao.categoryList();
     }
+
+    @Override
+    public void add(Category category) {
+        categoryDao.add(category);
+    }
+
+    @Override
+    public void delete(Integer cid) {
+        categoryDao.delete(cid);
+        // 接下来应该删除分类下的所有商品
+    }
+
+    @Override
+    public void update(Category category) {
+        categoryDao.update(category);
+    }
+
+    @Override
+    public Category categoryFindById(Integer cid) {
+        return categoryDao.categoryFindById(cid);
+    }
 }
