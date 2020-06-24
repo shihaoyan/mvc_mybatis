@@ -2,13 +2,7 @@ package com.shy.dao;
 
 import com.shy.annotation.*;
 import com.shy.beans.Category;
-import com.shy.myenum.DataType;
-import com.shy.utils.JDBCUtils;
-import com.shy.utils.DataBindingUtils;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 /**
